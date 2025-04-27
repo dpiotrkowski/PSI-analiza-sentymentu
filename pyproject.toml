@@ -1,0 +1,11 @@
+[project]
+name = "webscrapping-wykop-reddit"
+version = "0.1.0"
+description = "Wykorzystaliśmy Pythona i metody webscrappingu do pobrania danych tekstowych przez API portali Reddit i Wykop"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "praw>=7.8.1",
+    "python-dotenv>=1.1.0",
+    "wykop-sdk-reloaded>=0.7.0",
+]
