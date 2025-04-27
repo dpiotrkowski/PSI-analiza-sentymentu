@@ -1,0 +1,4 @@
+*.env
+*src/.env
+*.venv
+*.python-version
