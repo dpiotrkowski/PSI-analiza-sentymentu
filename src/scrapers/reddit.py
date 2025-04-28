@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 import praw
-
+import sys
 # Inicjalizacja zmiennych środowiskowych z pliku .env
 load_dotenv()
 
@@ -23,16 +23,29 @@ reddit = praw.Reddit(
 # Krok 2: WYBÓR DANYCH
 ## REDDIT: Wybór subreddita r/Polska
 subreddit = reddit.subreddit('Polska')
+if len(sys.argv) < 2:
+    print("Proszę podać słowa do wyszukiwania.")
+    sys.exit(1)
+
+subreddits = sys.argv[1].split(',')  # Pobranie subreddity z argumentów
+search_words = sys.argv[2].split(',')  # Pobranie słów do wyszukiwania z argumentów
 
 # Krok 3: ZAPIS WYNIKÓW do txt
 os.makedirs('../data', exist_ok=True)
 ## REDDIT: Zapis wyników z Reddita do pliku
 with open('../data/results_reddit.txt', 'w', encoding='utf-8') as reddit_file:
-    # Przeszukiwanie postów, zawierających frazę "wybory"
-    for submission in subreddit.search('wybory', sort='new', limit=10):
-        reddit_file.write(f"Tytuł: {submission.title}\n")
-        reddit_file.write(f"Wynik: {submission.score}\n")
-        reddit_file.write(f"URL: {submission.url}\n")
-        reddit_file.write(f"Utworzono: {submission.created_utc}\n")
-        reddit_file.write(f"Treść: {submission.selftext}\n\n")
+    for subreddit_name in subreddits:
+        subreddit_name = subreddit_name.strip()  # Usunięcie białych znaków
+        subreddit = reddit.subreddit(subreddit_name)
+
+        reddit_file.write(f"Subreddit: {subreddit_name}\n")
+
+        for submission in subreddit.search(search_words, sort='new', limit=2):
+            reddit_file.write(f"Tytuł: {submission.title}\n")
+            reddit_file.write(f"Wynik: {submission.score}\n")
+            reddit_file.write(f"URL: {submission.url}\n")
+            reddit_file.write(f"Utworzono: {submission.created_utc}\n")
+            reddit_file.write(f"Treść: {submission.selftext}\n\n")
+
+        reddit_file.write("\n" + "="*40 + "\n\n")  # Separator między subreddits
 
