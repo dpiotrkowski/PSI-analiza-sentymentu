@@ -2,3 +2,4 @@
 *src/.env
 *.venv
 *.python-version
+*src/data
