@@ -36,7 +36,7 @@ for tag in wykop_tags:
         print(f"Błąd pobierania danych dla tagu '{tag}': {e}")
         exit()
 
-    with open("data/results_wykop.txt", "w", encoding="utf-8") as f:
+    with open("../data/results_wykop.txt", "w", encoding="utf-8") as f:
         if not result.get('data'):
             print(f"Brak artykułów dla tagu {tag}\n")
             continue 
