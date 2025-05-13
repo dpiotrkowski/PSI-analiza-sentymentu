@@ -9,9 +9,9 @@ import pandas as pd
 
 # *Załadowanie polskiego słownika sentymentu (ręcznie przefiltrowany plwordnet w csv)
 slownik_sentymentu = pd.read_csv('słowniki/SłownikSentymentu.csv', sep=';',encoding='cp1250')
-print(slownik_sentymentu.columns.tolist())
+# print(slownik_sentymentu.columns.tolist())
 # Wczytanie zescrapowanego pliku tekstowego z Reddita/Wykopu
-with open('src/data/results_reddit.txt', 'r', encoding='utf-8') as file:
+with open('data/results_reddit.txt', 'r', encoding='utf-8') as file:
     tekst_cały = file.read()
 # Podział wczytanego pliku na słowa (nie jest wyczyszczony)
 slowa = tekst_cały.split()
@@ -37,7 +37,7 @@ filtered_words_no_links_no_digits = [
 ]
 # Utwórz DataFrame
 ramka_slow = pd.DataFrame(filtered_words_no_links_no_digits, columns=['slowa'])
-print(ramka_slow)
+# print(ramka_slow)
 # Lematyzacja każdego ze słów
 morfeusz = morfeusz2.Morfeusz()
 
@@ -56,12 +56,12 @@ ramka_slow['lemma'] = ramka_slow['slowa'].apply(lemmatize_word)
 # Najczęstsze słowa:
 ramka_slow['lemma_clean'] = ramka_slow['lemma'].apply(lambda x: x.split(':')[0])
 lemma_counts = ramka_slow['lemma_clean'].value_counts()
-print(lemma_counts.head(50))
+# print(lemma_counts.head(50))
 
 # czyszczenie lematów ze zbędnych słów - stopwords (się, na, i, w, itp...) 
 # https://github.com/stopwords-iso/stopwords-pl/blob/master/stopwords-pl.txt
 
-with open('stopwords-pl.txt', 'r', encoding='utf-8') as file:
+with open('słowniki/stopwords-pl.txt', 'r', encoding='utf-8') as file:
     df_polish_stop_words = file.read().splitlines()
 ramka_slow = ramka_slow[~ramka_slow['lemma_clean'].isin(df_polish_stop_words)]
 print(ramka_slow['lemma_clean'].value_counts().head(50))
@@ -69,7 +69,7 @@ print(ramka_slow['lemma_clean'].value_counts().head(50))
 # Chmura słów będzie tutaj
 
 # Przypisanie sentymentu 
-print(slownik_sentymentu.columns)
+# print(slownik_sentymentu.columns)
 # Połączenie ramki lematów z ramką słownika sentymentu
 ramka_slow = ramka_slow.merge(
     slownik_sentymentu,
