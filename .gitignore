@@ -3,3 +3,5 @@
 *.venv
 *.python-version
 *src/data
+*.ipynb_checkpoints/
+*uv.lock
