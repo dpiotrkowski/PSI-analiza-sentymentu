@@ -5,10 +5,14 @@ description = "Wykorzystaliśmy Pythona i metody webscrappingu do pobrania danyc
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "matplotlib>=3.10.3",
     "morfeusz2>=1.99.9",
+    "numpy>=2.2.5",
     "pandas>=2.2.3",
+    "pillow>=11.2.1",
     "plwordnet>=0.1.5",
     "praw>=7.8.1",
     "python-dotenv>=1.1.0",
+    "wordcloud>=1.9.4",
     "wykop-sdk-reloaded>=0.7.0",
 ]
