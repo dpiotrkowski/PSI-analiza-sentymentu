@@ -5,3 +5,4 @@
 *src/data
 *.ipynb_checkpoints/
 *uv.lock
+*analiza_sentymentu_files/
