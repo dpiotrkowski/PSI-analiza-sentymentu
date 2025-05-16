@@ -1,11 +1,19 @@
-## Projekt zaliczeniowy PSI
-Aplikacja wykorzystuje dane tekstowe, pochodzące z wpisów użytkowników Wykop i Reddit. Umożliwia dobór tagów oraz subredditów, a następnie tworzy analizę sentymentu. 
-### Część I
-1. Webscrapping danych przez API Reddita r/Polska oraz Wykop.pl w celu zebrania danych do analizy. (Python)
-- https://wykop.pl/dla-programistow
-2. Analiza porównawcza na podstawie sentymentu obu środowisk w kontekście wyborów prezydenckich 2025. (R, Quarto)
-3. Raport
-### Część II. Dokumentacja
-### Pytania badawcze
-- Który kandydat był najczęściej wspominany i przez kogo?
-- Nastawienie do danych kandydatów?
+## Opis projektu  
+---
+Aplikacja wykorzystuje dane tekstowe, pochodzące z wpisów użytkowników platform [Wykop](https://wykop.pl) i [Reddit](https://reddit.com). Umożliwia dobór tagów oraz subredditów, a następnie tworzy chmurę słów, analizę sentymentu i szuka asocjacji. Dane są pozyskiwane poprzez webscraping za pośrednictwem API powyższych serwisów.
+
+Projekt powstał w ramach przedmiotu [Projektowania Systemów Informatycznych](https://github.com/karolinakuligowska/Projektowanie_systemow_informatycznych). 
+
+```bash
+git clone https://github.com/dpiotrkowski/PSI-analiza-sentymentu.git 
+```
+
+**Część I** *Reproducible Research*: 
+- Kod źródłowy: [`analiza-sentymentu.ipynb`](https://github.com/dpiotrkowski/PSI-analiza-sentymentu/blob/main/analiza-sentymentu.ipynb)
+- Dane tekstowe znajdują się w folderu
+[`data/`](https://github.com/dpiotrkowski/PSI-analiza-sentymentu/blob/main/data/).
+- Raport
+**Część II** Dokumentacja: 
+- [Dokumentacja wymagań użytkownika](https://github.com/dpiotrkowski/PSI-analiza-sentymentu/blob/main/DOKUMENTACJA.md)
+- [Dokumentacja scraperów](https://github.com/dpiotrkowski/PSI-analiza-sentymentu/blob/main/src/README.md).
+
