@@ -39,7 +39,7 @@ with open("../data/results_reddit.txt", "w", encoding="utf-8") as reddit_file:
         subreddit = reddit.subreddit(subreddit_name)
 
         reddit_file.write(f"r/{subreddit_name}\n")
-        for submission in subreddit.search(search_words, sort="new", limit=250):
+        for submission in subreddit.search(search_words, sort="new", limit=200):
             # reddit_file.write(f"Wynik: {submission.score}\n")  # opcjonalne
             # reddit_file.write(f"URL: {submission.url}\n")  # opcjonalne
             # OPCJONALNE: Timestampy mogą się przydać do analizy sentymentu w czasie
@@ -57,8 +57,8 @@ with open("../data/results_reddit.txt", "w", encoding="utf-8") as reddit_file:
                 unique_posts.add(unique_identifier)  # Add to the set
                 reddit_file.write(f"{post_title}\n")
                 reddit_file.write(f"{post_selftext}\n\n")
-                time.sleep(1)  # Sleep to avoid hitting the rate limit
+                reddit_file.write("\n" + "-" * 50 + "\n\n")  # Separator między subreddits
+                time.sleep(0.2)  # Sleep to avoid hitting the rate limit
             # reddit_file.write(f"{submission.selftext}\n\n")
-            time.sleep(1)
+            # time.sleep(1)
 
-        reddit_file.write("\n" + "-" * 50 + "\n\n")  # Separator między subreddits
