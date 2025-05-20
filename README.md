@@ -12,7 +12,7 @@ git clone https://github.com/dpiotrkowski/PSI-analiza-sentymentu.git
 - Kod źródłowy: [`analiza-sentymentu.ipynb`](https://github.com/dpiotrkowski/PSI-analiza-sentymentu/blob/main/analiza_sentymentu.ipynb)
 - Dane tekstowe znajdują się w folderu
 [`data/`](https://github.com/dpiotrkowski/PSI-analiza-sentymentu/blob/main/data/).
-- [Raport](https://github.com/dpiotrkowski/PSI-analiza-sentymentu/blob/main/raport/analiza_sentymentu.html).
+- [Raport w postaci HTML](https://dpiotrkowski.github.io/PSI-analiza-sentymentu/raport/analiza_sentymentu.html) dodany za pomocą Github Pages.
 
 **Część II** Dokumentacja: 
 - [Dokumentacja wymagań użytkownika](https://github.com/dpiotrkowski/PSI-analiza-sentymentu/blob/main/DOKUMENTACJA.md)
